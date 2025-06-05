@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getUrqlClient } from "@/lib/uqrl";
 import { GetCharacterByIdQuery } from "@/queries/characterQueries";
 import { notFound } from "next/navigation";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import CharacterBadges from "@/app/components/custom/character-badges";
+import CharacterBadges from "@/app/components/custom/characterBadges";
+import FavoriteButton from "@/app/components/custom/favoriteButton";
 
 type Props = {
   params: { id: string };
@@ -26,12 +26,17 @@ const DetailsPage = async ({ params, searchParams }: Props) => {
         <h1 className="text-4xl font-extrabold text-center sm:text-left text-gray-900">
           {character.name}
         </h1>
-        <button
-          className="self-start sm:self-auto bg-white rounded-full p-2 shadow hover:bg-gray-100 transition"
-          title="Agregar a favoritos"
-        >
-          <FavoriteBorderIcon className="text-red-500" fontSize="large" />
-        </button>
+        
+          <FavoriteButton
+            character={{
+            id: character.id.toString(),
+            name: character.name,
+            image: character.image,
+            gender: character.gender,
+            status: character.status,
+             }}
+            />
+       
       </div>
 
 

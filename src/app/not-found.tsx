@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <div className="relative min-h-[calc(100vh-64px)] flex items-center justify-center pt-16 overflow-hidden">
       <Image
         src="/404.jpg"
-        alt="Fondo"
+        alt="Fondo404"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
         priority
